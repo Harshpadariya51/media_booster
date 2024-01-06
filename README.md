@@ -3,7 +3,7 @@
 A new Flutter project.
 
 ## Getting Started
-#Create Splash Screen...
+# Create Splash Screen...
 
 This project is a starting point for a Flutter application.
 
