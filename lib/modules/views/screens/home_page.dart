@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:media_booster/modules/components/app_bar/custom_appbar.dart';
+import 'package:media_booster/modules/components/custom_app_bar.dart';
+import 'package:media_booster/modules/components/custom_nav_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -20,32 +21,7 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: const CustomAppBar(),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.deepPurple.shade800,
-          unselectedItemColor: Colors.white,
-          showUnselectedLabels: false,
-          showSelectedLabels: false,
-          selectedItemColor: Colors.white,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_outline),
-              label: 'Favorites',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.play_circle_fill_outlined),
-              label: 'Play',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.people_outline),
-              label: 'Profile',
-            ),
-          ],
-        ),
+        bottomNavigationBar: customNavBar(),
         body: Container(),
       ),
     );
