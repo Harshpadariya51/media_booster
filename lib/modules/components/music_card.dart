@@ -17,7 +17,6 @@ class MusicCard extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {
-              // Navigator.of(context).pushNamed('music', arguments: songs);
               Get.toNamed('song_screen', arguments: songs);
             },
             child: Container(

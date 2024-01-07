@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: const CustomAppBar(),
-        bottomNavigationBar: CustomNavBar(),
+        bottomNavigationBar: const CustomNavbar(),
         body: SingleChildScrollView(
           child: Column(
             children: [

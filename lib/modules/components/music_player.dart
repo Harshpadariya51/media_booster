@@ -34,9 +34,7 @@ class MusicPlayer extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
           ),
-          const SizedBox(
-            height: 30,
-          ),
+          const SizedBox(height: 30),
           StreamBuilder<SeekbarData>(
             stream: seekBarDataStream,
             builder: (context, snapshot) {
