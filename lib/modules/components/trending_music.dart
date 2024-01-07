@@ -9,7 +9,7 @@ class TrendingMusic extends StatelessWidget {
     required this.song,
   });
 
-  final List<SongModel> song;
+  final List<Song> song;
 
   @override
   Widget build(BuildContext context) {

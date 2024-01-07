@@ -16,7 +16,7 @@ class SongScreen extends StatefulWidget {
 
 class _SongScreenState extends State<SongScreen> {
   AudioPlayer audioPlayer = AudioPlayer();
-  SongModel song = Get.arguments ?? SongModel.songs[2];
+  Song song = Get.arguments ?? Song.songs[2];
 
   @override
   void initState() {
@@ -38,7 +38,7 @@ class _SongScreenState extends State<SongScreen> {
     super.dispose();
   }
 
-  Stream<SeekbarData> get seekBarDataStrem =>
+  Stream<SeekbarData> get seekBarDataStream =>
       rxdart.Rx.combineLatest2<Duration, Duration?, SeekbarData>(
           audioPlayer.positionStream, audioPlayer.durationStream, (
         Duration position,
@@ -67,7 +67,7 @@ class _SongScreenState extends State<SongScreen> {
           const BackgroundFilter(),
           MusicPlayer(
             song: song,
-            seekBarDataStream: seekBarDataStrem,
+            seekBarDataStream: seekBarDataStream,
             audioPlayer: audioPlayer,
           ),
         ],

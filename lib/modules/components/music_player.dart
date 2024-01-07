@@ -7,7 +7,7 @@ import 'package:media_booster/modules/models/song_model.dart';
 class MusicPlayer extends StatelessWidget {
   final Stream<SeekbarData> seekBarDataStream;
   final AudioPlayer audioPlayer;
-  final SongModel song;
+  final Song song;
 
   const MusicPlayer({
     super.key,

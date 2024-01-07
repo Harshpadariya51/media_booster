@@ -17,15 +17,12 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       initialRoute: 'welcome',
       routes: {
-        'home': (context) => const HomePage(),
+        '/': (context) => const HomePage(),
         'welcome': (context) => const WelcomeSplash(),
         'song_screen': (context) => const SongScreen(),
-        '/': (context) => const PlaylistScreen(),
+        'playlist': (context) => const PlaylistScreen(),
       },
       debugShowCheckedModeBanner: false,
-      // theme: ThemeData.light(useMaterial3: true),
-      // darkTheme: ThemeData.dark(useMaterial3: true),
-      // themeMode: ThemeMode.system,
     );
   }
 }

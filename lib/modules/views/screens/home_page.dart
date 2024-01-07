@@ -12,8 +12,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<SongModel> song = SongModel.songs;
-    List<PlaylistModel> playlist = PlaylistModel.playlist;
+    List<Song> song = Song.songs;
+    List<Playlist> playlists = Playlist.playlist;
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
             children: [
               const DiscoverMusic(),
               TrendingMusic(song: song),
-              PlaylistMusic(playlists: playlist),
+              PlaylistMusic(playlists: playlists),
             ],
           ),
         ),

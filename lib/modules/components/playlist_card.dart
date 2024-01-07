@@ -8,13 +8,13 @@ class PlaylistCard extends StatelessWidget {
     required this.playlists,
   });
 
-  final PlaylistModel playlists;
+  final Playlist playlists;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.toNamed('playlist', arguments: playlist);
+        Get.toNamed('playlist', arguments: playlists);
       },
       child: Container(
         height: 75,
@@ -30,7 +30,7 @@ class PlaylistCard extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(15),
               child: Image.network(
-                playlist.imageUrl,
+                playlists.imageUrl,
                 width: 50,
                 height: 50,
                 fit: BoxFit.cover,
@@ -43,7 +43,7 @@ class PlaylistCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    playlist.title,
+                    playlists.title,
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -51,7 +51,7 @@ class PlaylistCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '${playlist.songs.length} songs',
+                    '${playlists.songs.length} songs',
                     maxLines: 2,
                     style: TextStyle(
                       fontSize: 14,

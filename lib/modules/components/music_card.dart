@@ -4,7 +4,7 @@ import 'package:media_booster/modules/models/song_model.dart';
 
 class MusicCard extends StatelessWidget {
   const MusicCard({super.key, required this.songs});
-  final SongModel songs;
+  final Song songs;
 
   @override
   Widget build(BuildContext context) {
