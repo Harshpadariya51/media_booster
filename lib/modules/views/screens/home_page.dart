@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:media_booster/modules/components/custom_app_bar.dart';
 import 'package:media_booster/modules/components/custom_nav_bar.dart';
+import 'package:media_booster/modules/components/discover_music.dart';
+import 'package:media_booster/modules/components/playlist_music.dart';
+import 'package:media_booster/modules/components/trending_music.dart';
+import 'package:media_booster/modules/models/playlist_model.dart';
+import 'package:media_booster/modules/models/song_model.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List<SongModel> song = SongModel.songs;
+    List<PlaylistModel> playlist = PlaylistModel.playlist;
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -21,8 +28,16 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: const CustomAppBar(),
-        bottomNavigationBar: customNavBar(),
-        body: Container(),
+        bottomNavigationBar: CustomNavBar(),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              const DiscoverMusic(),
+              TrendingMusic(song: song),
+              PlaylistMusic(playlists: playlist),
+            ],
+          ),
+        ),
       ),
     );
   }

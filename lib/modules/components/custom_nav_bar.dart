@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-BottomNavigationBar customNavBar() {
+BottomNavigationBar CustomNavBar() {
   return BottomNavigationBar(
     type: BottomNavigationBarType.fixed,
     backgroundColor: Colors.deepPurple.shade800,

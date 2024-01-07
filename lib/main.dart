@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:media_booster/modules/views/screens/home_page.dart';
+import 'package:media_booster/modules/views/screens/playlist_screen.dart';
+import 'package:media_booster/modules/views/screens/song_screen.dart';
 import 'package:media_booster/modules/views/screens/welcome_screen.dart';
 
 void main() {
@@ -11,11 +14,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       initialRoute: 'welcome',
       routes: {
-        '/': (context) => const HomePage(),
+        'home': (context) => const HomePage(),
         'welcome': (context) => const WelcomeSplash(),
+        'song_screen': (context) => const SongScreen(),
+        '/': (context) => const PlaylistScreen(),
       },
       debugShowCheckedModeBanner: false,
       // theme: ThemeData.light(useMaterial3: true),
