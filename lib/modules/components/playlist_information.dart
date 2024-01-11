@@ -12,8 +12,8 @@ class PlaylistInformation extends StatelessWidget {
           borderRadius: BorderRadius.circular(15.0),
           child: Image.network(
             playlist.imageUrl,
-            height: MediaQuery.of(context).size.height * 0.3,
-            width: MediaQuery.of(context).size.width * 0.3,
+            height: MediaQuery.of(context).size.height * 0.42,
+            width: MediaQuery.of(context).size.width * 0.55,
             fit: BoxFit.cover,
           ),
         ),

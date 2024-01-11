@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomePage(),
         'welcome': (context) => const WelcomeSplash(),
-        'song_screen': (context) => const SongScreen(),
+        // 'song_screen': (context) => const SongScreen(),
         'playlist': (context) => const PlaylistScreen(),
       },
       debugShowCheckedModeBanner: false,

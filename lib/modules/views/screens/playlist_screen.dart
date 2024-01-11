@@ -9,7 +9,8 @@ class PlaylistScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Playlist playlists = Playlist.playlist[0];
+    Playlist playlist = ModalRoute.of(context)!.settings.arguments as Playlist;
+    // Playlist playlists = Playlist.playlist[];
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -37,10 +38,10 @@ class PlaylistScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                PlaylistInformation(playlist: playlists),
+                PlaylistInformation(playlist: playlist),
                 const SizedBox(height: 30),
                 const PlayOrShuffleSwitch(),
-                PlayListSongs(playlist: playlists),
+                PlayListSongs(playlist: playlist),
               ],
             ),
           ),

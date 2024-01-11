@@ -18,59 +18,57 @@ class MusicPlayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 20.0,
-        vertical: 50,
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            song.title,
-            style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-          ),
-          const SizedBox(height: 30),
-          StreamBuilder<SeekbarData>(
-            stream: seekBarDataStream,
-            builder: (context, snapshot) {
-              final positionData = snapshot.data;
-              return SeekBar(
-                position: positionData?.position ?? Duration.zero,
-                duration: positionData?.duration ?? Duration.zero,
-                onChanged: audioPlayer.seek,
-              );
-            },
-          ),
-          PlayerButtons(audioPlayer: audioPlayer),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              IconButton(
-                onPressed: () {},
-                iconSize: 35,
-                icon: Icon(
-                  Icons.settings,
-                  color: Colors.white,
-                ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Title..............
+        Text(
+          song.title,
+          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
               ),
-              IconButton(
-                onPressed: () {},
-                iconSize: 35,
-                icon: Icon(
-                  Icons.cloud_download,
-                  color: Colors.white,
-                ),
+        ),
+        const SizedBox(height: 30),
+        // SeekBar...........
+        StreamBuilder<SeekbarData>(
+          stream: seekBarDataStream,
+          builder: (context, snapshot) {
+            final positionData = snapshot.data;
+            return SeekBar(
+              position: positionData?.position ?? Duration.zero,
+              duration: positionData?.duration ?? Duration.zero,
+              onChanged: audioPlayer.seek,
+            );
+          },
+        ),
+        // Buttons.......................
+        PlayerButtons(audioPlayer: audioPlayer),
+
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            IconButton(
+              onPressed: () {},
+              iconSize: 35,
+              icon: const Icon(
+                Icons.settings,
+                color: Colors.white,
               ),
-            ],
-          ),
-        ],
-      ),
+            ),
+            IconButton(
+              onPressed: () {},
+              iconSize: 35,
+              icon: const Icon(
+                Icons.cloud_download,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
