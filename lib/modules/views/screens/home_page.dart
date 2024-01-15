@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:just_audio/just_audio.dart';
 import 'package:media_booster/modules/components/custom_app_bar.dart';
+import 'package:media_booster/modules/components/audio/discover_music.dart';
+import 'package:media_booster/modules/components/audio/playlist_music.dart';
+import 'package:media_booster/modules/components/audio/section_header.dart';
 import 'package:media_booster/modules/components/custom_nav_bar.dart';
-import 'package:media_booster/modules/components/discover_music.dart';
-import 'package:media_booster/modules/components/playlist_music.dart';
-import 'package:media_booster/modules/components/section_header.dart';
-import 'package:media_booster/modules/components/seekbar.dart';
-import 'package:media_booster/modules/components/trending_music.dart';
 import 'package:media_booster/modules/models/playlist_model.dart';
 import 'package:media_booster/modules/models/song_model.dart';
 import 'package:media_booster/modules/views/screens/song_screen.dart';
-import 'package:rxdart/rxdart.dart' as rxdart;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,45 +16,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  AudioPlayer audioPlayer = AudioPlayer();
-
-  Song song = Get.arguments ?? Song.songs[0];
-
-  @override
-  void initState() {
-    super.initState();
-    audioPlayer.setAudioSource(
-      ConcatenatingAudioSource(
-        children: [
-          AudioSource.uri(
-            Uri.parse('asset:///${song.url}'),
-          ),
-          // AudioSource.uri(
-          //   Uri.parse('asset:///${Song.songs[1].url}'),
-          // ),
-        ],
-      ),
-    );
-  }
-
-  @override
-  void dispose() {
-    audioPlayer.dispose();
-    super.dispose();
-  }
-
-  Stream<SeekbarData> get seekBarDataStream =>
-      rxdart.Rx.combineLatest2<Duration, Duration?, SeekbarData>(
-        audioPlayer.positionStream,
-        audioPlayer.durationStream,
-        (Duration position, Duration? duration) {
-          return SeekbarData(
-            position: position,
-            duration: duration ?? Duration.zero,
-          );
-        },
-      );
-
   @override
   Widget build(BuildContext context) {
     List<Song> song = Song.songs;

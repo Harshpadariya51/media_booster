@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:media_booster/modules/components/play_list_songs.dart';
-import 'package:media_booster/modules/components/play_shuffle_switch.dart';
-import 'package:media_booster/modules/components/playlist_information.dart';
+import 'package:media_booster/modules/components/audio/play_list_songs.dart';
+import 'package:media_booster/modules/components/audio/play_shuffle_switch.dart';
+import 'package:media_booster/modules/components/audio/playlist_information.dart';
 import 'package:media_booster/modules/models/playlist_model.dart';
 
 class PlaylistScreen extends StatelessWidget {
@@ -10,7 +10,6 @@ class PlaylistScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Playlist playlist = ModalRoute.of(context)!.settings.arguments as Playlist;
-    // Playlist playlists = Playlist.playlist[];
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -25,6 +24,17 @@ class PlaylistScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
+          leading: Card(
+            elevation: 8,
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: const Icon(
+                Icons.arrow_back,
+              ),
+            ),
+          ),
           title: const Text(
             'Playlist',
             style: TextStyle(color: Colors.white),

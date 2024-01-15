@@ -12,20 +12,25 @@ class CustomNavbar extends StatelessWidget {
       showUnselectedLabels: false,
       showSelectedLabels: false,
       selectedItemColor: Colors.white,
-      items: const [
-        BottomNavigationBarItem(
+      items: [
+        const BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: 'Home',
         ),
-        BottomNavigationBarItem(
+        const BottomNavigationBarItem(
           icon: Icon(Icons.favorite_outline),
           label: 'Favorites',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.play_circle_outline),
+          icon: IconButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed('video');
+            },
+            icon: const Icon(Icons.play_circle_outline),
+          ),
           label: 'Play',
         ),
-        BottomNavigationBarItem(
+        const BottomNavigationBarItem(
           icon: Icon(Icons.people_outline),
           label: 'Profile',
         ),

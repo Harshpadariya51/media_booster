@@ -19,9 +19,21 @@ class _WelcomeSplashState extends State<WelcomeSplash> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Image.asset('assets/img/hey.gif'),
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Colors.deepPurple.shade900.withOpacity(0.8),
+            Colors.deepPurple.shade300.withOpacity(0.8),
+          ],
+        ),
+      ),
+      child: Scaffold(
+        body: Center(
+          child: Image.asset('assets/img/hey.gif'),
+        ),
       ),
     );
   }

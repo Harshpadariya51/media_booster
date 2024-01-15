@@ -1,7 +1,9 @@
+// ignore_for_file: unnecessary_cast
+
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:media_booster/modules/components/background_filter.dart';
-import 'package:media_booster/modules/components/seekbar.dart';
+import 'package:media_booster/modules/components/audio/background_filter.dart';
+import 'package:media_booster/modules/components/audio/seekbar.dart';
 import 'package:media_booster/modules/models/song_model.dart';
 import 'package:rxdart/rxdart.dart' as rxdart;
 
@@ -17,7 +19,6 @@ class SongScreen extends StatefulWidget {
 
 class _SongScreenState extends State<SongScreen> {
   AudioPlayer audioPlayer = AudioPlayer();
-  // Song song = Get.arguments ?? Song.songs[0];
 
   @override
   void initState() {
@@ -28,9 +29,6 @@ class _SongScreenState extends State<SongScreen> {
           AudioSource.uri(
             Uri.parse('asset:///${widget.songList[widget.songIndex].url}'),
           ),
-          // AudioSource.uri(
-          //   Uri.parse('asset:///${Song.songs[1].url}'),
-          // ),
         ],
       ),
     );
@@ -58,6 +56,19 @@ class _SongScreenState extends State<SongScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Card(
+          color: Colors.deepPurple.shade400.withOpacity(0.3),
+          elevation: 8,
+          child: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+            ),
+          ),
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -99,6 +110,7 @@ class _SongScreenState extends State<SongScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  // skip_previous :-
                   StreamBuilder<SequenceState?>(
                     stream: audioPlayer.sequenceStateStream,
                     builder: (context, index) {
@@ -117,6 +129,7 @@ class _SongScreenState extends State<SongScreen> {
                           }
                         },
                         iconSize: 45,
+                        // skip_previous_rounded
                         icon: const Icon(
                           Icons.skip_previous_rounded,
                           color: Colors.white,
@@ -124,6 +137,7 @@ class _SongScreenState extends State<SongScreen> {
                       );
                     },
                   ),
+                  // Play / Pause :-
                   StreamBuilder<PlayerState>(
                     stream: audioPlayer.playerStateStream,
                     builder: (context, snapshot) {
@@ -145,6 +159,7 @@ class _SongScreenState extends State<SongScreen> {
                               audioPlayer.play();
                             },
                             iconSize: 75,
+                            // play_circle
                             icon: const Icon(
                               Icons.play_circle,
                               color: Colors.white,
@@ -155,6 +170,7 @@ class _SongScreenState extends State<SongScreen> {
                           return IconButton(
                             onPressed: audioPlayer.pause,
                             iconSize: 75,
+                            // pause_circle
                             icon: const Icon(
                               Icons.pause_circle,
                               color: Colors.white,
@@ -167,6 +183,7 @@ class _SongScreenState extends State<SongScreen> {
                               index: audioPlayer.effectiveIndices!.first,
                             ),
                             iconSize: 75,
+                            // replay_circle_filled_rounded
                             icon: const Icon(
                               Icons.replay_circle_filled_rounded,
                               color: Colors.white,
@@ -178,6 +195,7 @@ class _SongScreenState extends State<SongScreen> {
                       }
                     },
                   ),
+                  // skip_next :-
                   StreamBuilder<SequenceState?>(
                     stream: audioPlayer.sequenceStateStream,
                     builder: (context, index) {
@@ -196,6 +214,7 @@ class _SongScreenState extends State<SongScreen> {
                           }
                         },
                         iconSize: 45,
+                        // skip_next
                         icon: const Icon(
                           Icons.skip_next_rounded,
                           color: Colors.white,
@@ -205,30 +224,6 @@ class _SongScreenState extends State<SongScreen> {
                   ),
                 ],
               ),
-              // PlayerButtons(audioPlayer: audioPlayer),
-
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   crossAxisAlignment: CrossAxisAlignment.center,
-              //   children: [
-              //     IconButton(
-              //       onPressed: () {},
-              //       iconSize: 35,
-              //       icon: const Icon(
-              //         Icons.settings,
-              //         color: Colors.white,
-              //       ),
-              //     ),
-              //     IconButton(
-              //       onPressed: () {},
-              //       iconSize: 35,
-              //       icon: const Icon(
-              //         Icons.cloud_download,
-              //         color: Colors.white,
-              //       ),
-              //     ),
-              //   ],
-              // ),
             ],
           ),
         ],
