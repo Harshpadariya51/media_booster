@@ -11,6 +11,7 @@ class PlaylistMusic extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
+        
         children: [
           const SectionHeader(title: 'playlists'),
           ListView.builder(

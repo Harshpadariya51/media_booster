@@ -16,7 +16,7 @@ class PlaylistCard extends StatelessWidget {
         Navigator.of(context).pushNamed('playlist', arguments: playlists);
       },
       child: Container(
-        height: 75,
+        height: 70,
         margin: const EdgeInsets.only(bottom: 10),
         padding: const EdgeInsets.symmetric(horizontal: 20),
         decoration: BoxDecoration(

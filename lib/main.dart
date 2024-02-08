@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const HomePage(),
         'welcome': (context) => const WelcomeSplash(),
         'playlist': (context) => const PlaylistScreen(),
-        'video': (context) => VideoScreen(),
+        'video': (context) => const VideoScreen(),
       },
       debugShowCheckedModeBanner: false,
     );

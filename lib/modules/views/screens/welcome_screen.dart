@@ -31,8 +31,26 @@ class _WelcomeSplashState extends State<WelcomeSplash> {
         ),
       ),
       child: Scaffold(
+        backgroundColor: Colors.transparent,
         body: Center(
-          child: Image.asset('assets/img/hey.gif'),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset('assets/img/hey.gif'),
+              const SizedBox(
+                height: 10,
+              ),
+              const Text(
+                'Media Booster',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

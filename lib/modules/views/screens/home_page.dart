@@ -112,14 +112,14 @@ class _HomePageState extends State<HomePage> {
                                             Text(
                                               song[index].title,
                                               style: const TextStyle(
-                                                  fontSize: 15,
+                                                  fontSize: 11,
                                                   fontWeight: FontWeight.bold,
                                                   color: Colors.deepPurple),
                                             ),
                                             Text(
                                               song[index].desc,
                                               style: const TextStyle(
-                                                  fontSize: 11.3,
+                                                  fontSize: 9,
                                                   fontWeight: FontWeight.bold,
                                                   color: Colors.deepPurple),
                                             ),
