@@ -1,57 +1,69 @@
 class Song {
-  String title;
-  String desc;
-  String url;
-  String coverUrl;
+  String name;
+  String song;
+  String img;
+  String video;
   Song({
-    required this.title,
-    required this.desc,
-    required this.url,
-    required this.coverUrl,
+    required this.name,
+    required this.song,
+    required this.img,
+    required this.video,
   });
 
   static List<Song> songs = [
     Song(
-      title: 'Malang Sajna',
-      desc: 'Malang Sajna',
-      url: 'assets/music/m1.mp3',
-      coverUrl: 'assets/img/img1.jpg',
+      name: "Satranga",
+      song: "assets/music/satranga.m4a",
+      img: "assets/img/Satranga.jpg",
+      video: "assets/video/SATRANGA.mp4",
     ),
     Song(
-      title: 'Arijit Singhs 2023',
-      desc: '💖Romantic Songs 2023💖',
-      url: 'assets/music/m2.mp3',
-      coverUrl: 'assets/img/img2.jpg',
+      name: "Apna Bana Le",
+      song: "assets/music/apna_banale.mp3",
+      img: "assets/img/apna_banale.jpg",
+      video: "assets/video/Apna Bana Le.mp4",
     ),
     Song(
-      title: 'Chand Wala Mukhda',
-      desc: 'Chand Wala ',
-      url: 'assets/music/m3.mp3',
-      coverUrl: 'assets/img/img3.jpg',
+      name: "Chogada",
+      song: "assets/music/Chogada.m4a",
+      img: "assets/img/Chogada.jpeg",
+      video: "assets/video/Chogada.mp4",
     ),
     Song(
-      title: 'Jhoome Jo Pathaan',
-      desc: 'Jhoome Jo Pathaan',
-      url: 'assets/music/m4.mp3',
-      coverUrl: 'assets/img/img4.jpg',
+      name: "Daayre",
+      song: "assets/music/Daayre.m4a",
+      img: "assets/img/DAAYRE.jpeg",
+      video: "assets/video/Daayre.mp4",
     ),
     Song(
-      title: 'Let’s Naacho!',
-      desc: 'Let’s Naacho!',
-      url: 'assets/music/m5.mp3',
-      coverUrl: 'assets/img/img5.jpg',
+      name: "Deva Deva",
+      song: "assets/music/Deva Deva.m4a",
+      img: "assets/img/Deva-Deva.jpg",
+      video: "assets/video/Deva Deva.mp4",
     ),
     Song(
-      title: 'Maan Meri Jaan',
-      desc: 'Maan Meri Jaan',
-      url: 'assets/music/m6.mp3',
-      coverUrl: 'assets/img/img6.jpg',
+      name: "Dhokha Dhadi",
+      song: "assets/music/Dhokha Dhadi.m4a",
+      img: "assets/img/Dhokha Dhadi.jpg",
+      video: "assets/video/Dhokha Dhadi.mp4",
     ),
     Song(
-      title: 'Matla Upar Matlu',
-      desc: 'Matla Upar Matlu',
-      url: 'assets/music/m7.mp3',
-      coverUrl: 'assets/img/img7.jpg',
+      name: "Kesriyo Rang",
+      song: "assets/music/Kesriyo Rang.m4a",
+      img: "assets/img/Kesariyo_Rang.jpg",
+      video: "assets/video/Kesariyo Rang.mp4",
+    ),
+    Song(
+      name: "Saware",
+      song: "assets/music/Saware.m4a",
+      img: "assets/img/saware.jpg",
+      video: "assets/video/Saware.mp4",
+    ),
+    Song(
+      name: "Tane Joyi Me",
+      song: "assets/music/Tane Joyi Me.m4a",
+      img: "assets/img/tane_joi_me.jpg",
+      video: "assets/video/Tane joi me Jyar Thi.mp4",
     ),
   ];
 }

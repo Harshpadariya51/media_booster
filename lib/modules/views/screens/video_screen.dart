@@ -1,79 +1,75 @@
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
-import 'package:card_swiper/card_swiper.dart';
-import 'package:media_booster/modules/components/video/video_play.dart';
+import 'package:video_player/video_player.dart';
 
 class VideoScreen extends StatefulWidget {
-  const VideoScreen({super.key});
+  String videoUrl;
+  VideoScreen({super.key, required this.videoUrl});
 
   @override
   State<VideoScreen> createState() => _VideoScreenState();
 }
 
 class _VideoScreenState extends State<VideoScreen> {
-  final List<String> videos = [
-    'assets/video/v1.mp4',
-    'assets/video/v2.mp4',
-    'assets/video/v3.mp4',
-    'assets/video/v4.mp4',
-    'assets/video/v5.mp4',
-    'assets/video/v6.mp4',
-    'assets/video/v7.mp4',
-    'assets/video/v8.mp4',
-    'assets/video/v9.mp4',
-    'assets/video/v10.mp4',
-    'assets/video/v11.mp4',
-  ];
+  late VideoPlayerController _videoPlayerController;
+  ChewieController? _chewieController;
+
+  @override
+  void initState() {
+    super.initState();
+    initializePlayer();
+  }
+
+  Future initializePlayer() async {
+    _videoPlayerController = VideoPlayerController.asset(widget.videoUrl);
+    await Future.wait([_videoPlayerController.initialize()]);
+    _chewieController = ChewieController(
+      videoPlayerController: _videoPlayerController,
+      allowedScreenSleep: false,
+      showOptions: true,
+      allowPlaybackSpeedChanging: true,
+      draggableProgressBar: true,
+      showControls: true,
+      allowFullScreen: true,
+      looping: true,
+      autoInitialize: true,
+      showControlsOnInitialize: true,
+    );
+    setState(() {});
+  }
+
+  @override
+  void dispose() {
+    _videoPlayerController.dispose();
+    _chewieController!.dispose();
+    super.dispose();
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Colors.deepPurple.shade800.withOpacity(0.8),
-            Colors.deepPurple.shade300.withOpacity(0.8),
-          ],
-        ),
-      ),
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: 10,
-          leading: IconButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            icon: const Icon(
-              Icons.arrow_back,
-              color: Colors.white,
-            ),
-          ),
-          backgroundColor: Colors.transparent,
-          title: const Text(
-            'Shorts',
-            style: TextStyle(color: Colors.white),
-          ),
-          centerTitle: true,
-        ),
+    return Scaffold(
+      backgroundColor: Colors.black12,
+      appBar: AppBar(
         backgroundColor: Colors.transparent,
-        body: SafeArea(
-          child: SizedBox(
-            child: Stack(
-              children: [
-                Swiper(
-                  itemBuilder: (BuildContext context, int index) {
-                    return VideoPlay(
-                      videoData: videos[index],
-                    );
-                  },
-                  itemCount: videos.length,
-                  scrollDirection: Axis.vertical,
-                ),
-              ],
-            ),
-          ),
+        title: const Text(
+          'Video',
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
+        centerTitle: true,
+      ),
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          _chewieController != null &&
+                  _chewieController!.videoPlayerController.value.isInitialized
+              ? GestureDetector(
+                  child: Chewie(
+                    controller: _chewieController!,
+                  ),
+                )
+              : Container(),
+        ],
       ),
     );
   }

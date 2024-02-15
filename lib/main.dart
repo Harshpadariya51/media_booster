@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:media_booster/modules/views/screens/home_page.dart';
-import 'package:media_booster/modules/views/screens/playlist_screen.dart';
-import 'package:media_booster/modules/views/screens/video_screen.dart';
-import 'package:media_booster/modules/views/screens/welcome_screen.dart';
+import 'package:media_booster/modules/views/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,8 +16,6 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomePage(),
         'welcome': (context) => const WelcomeSplash(),
-        'playlist': (context) => const PlaylistScreen(),
-        'video': (context) => const VideoScreen(),
       },
       debugShowCheckedModeBanner: false,
     );
