@@ -2,13 +2,6 @@
 
 A new Flutter project.
 
-## Getting Started Complete Media Booster You can see below
-
-
-
-https://github.com/MrManavRamani-Flutter/Media-Booster/assets/148671843/08dcee5f-a81a-4c44-9fb8-2d7c8346eac6
-
-
 
 
 This project is a starting point for a Flutter application.
