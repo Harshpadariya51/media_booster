@@ -18,6 +18,9 @@ class MyApp extends StatelessWidget {
         'welcome': (context) => const WelcomeSplash(),
       },
       debugShowCheckedModeBanner: false,
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.system,
     );
   }
 }
